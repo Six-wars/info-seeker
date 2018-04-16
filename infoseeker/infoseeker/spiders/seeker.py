@@ -27,7 +27,7 @@ class SeekerSpider(CrawlSpider):
         extract_first_info = response.css('.constituency-party li > a::text').extract()
 
         extract_second_headers = response.css('.contact-details h3::text').extract()
-        extract_second_info = response.css('.contact-details p').extract()
+        extract_second_info = response.css('.contact-details p *::text').extract()
 
         for key, value in zip(extract_first_headers, extract_first_info):
             result[key] = value
